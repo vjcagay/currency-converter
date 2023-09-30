@@ -1,0 +1,19 @@
+{
+  "name": "currency-trend-frontend",
+  "version": "0.0.1",
+  "description": "Backend for the Currency Trend",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vjcagay/currency-trend.git"
+  },
+  "author": "Vincent John Cagay",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/vjcagay/currency-trend/issues"
+  },
+  "homepage": "https://github.com/vjcagay/currency-trend#readme"
+}

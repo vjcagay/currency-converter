@@ -1,0 +1,33 @@
+{
+  "name": "currency-trend-frontend",
+  "version": "0.0.1",
+  "description": "Frontend for the Currency Trend",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "dev": "vite"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vjcagay/currency-trend.git"
+  },
+  "author": "Vincent John Cagay",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/vjcagay/currency-trend/issues"
+  },
+  "homepage": "https://github.com/vjcagay/currency-trend#readme",
+  "dependencies": {
+    "modern-normalize": "^2.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "styled-components": "^6.0.8"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.23",
+    "@types/react-dom": "^18.2.8",
+    "jest": "^29.7.0",
+    "typescript": "^5.2.2",
+    "vite": "^4.4.9"
+  }
+}
