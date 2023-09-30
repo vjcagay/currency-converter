@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CurrencyPicker /> should render correctly 1`] = `
+<DocumentFragment>
+  <div>
+    <select
+      data-testid="currency-picker-from"
+    >
+      <option
+        value="USD"
+      >
+        🇺🇸USD - US Dollar
+      </option>
+      <option
+        value="SGD"
+      >
+        🇸🇬SGD - Singapore Dollar
+      </option>
+      <option
+        value="JPY"
+      >
+        🇯🇵JPY - Japanese Yen
+      </option>
+      <option
+        value="EUR"
+      >
+        🇪🇺EUR - Euro
+      </option>
+    </select>
+    <button
+      data-testid="currency-picker-reverse"
+    />
+    <select
+      data-testid="currency-picker-to"
+    >
+      <option
+        value="USD"
+      >
+        🇺🇸USD - US Dollar
+      </option>
+      <option
+        value="SGD"
+      >
+        🇸🇬SGD - Singapore Dollar
+      </option>
+      <option
+        value="JPY"
+      >
+        🇯🇵JPY - Japanese Yen
+      </option>
+      <option
+        value="EUR"
+      >
+        🇪🇺EUR - Euro
+      </option>
+    </select>
+  </div>
+</DocumentFragment>
+`;
