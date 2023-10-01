@@ -88,7 +88,7 @@ const Calendar = (props: CalendarProps) => {
 const presetRanges = ["1W", "1M", "6M"];
 
 const DatePicker = (props: Props) => {
-  const [selectedPresetRange, setSelectedPresetRange] = useState("");
+  const [selectedPresetRange, setSelectedPresetRange] = useState("1W");
 
   useEffect(() => {
     if (selectedPresetRange) {

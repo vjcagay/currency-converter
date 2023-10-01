@@ -13,6 +13,7 @@ exports[`<DatePicker /> should render correctly 1`] = `
         data-testid="date-picker-range-1W"
       >
         <input
+          checked=""
           type="radio"
         />
         <span>
@@ -51,21 +52,6 @@ exports[`<DatePicker /> should render correctly 1`] = `
       >
         <img
           alt="calendar icon"
-          src="test-file-stub"
-        />
-      </button>
-      <span
-        class="customRangeText"
-        data-testid="date-picker-custom-range"
-      >
-        2022-10-03 - 2022-10-10
-      </span>
-      <button
-        class="customRangeFieldsetButton customRangeResetButton"
-        data-testid="date-picker-reset-range"
-      >
-        <img
-          alt="reset icon"
           src="test-file-stub"
         />
       </button>
