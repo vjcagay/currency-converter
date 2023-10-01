@@ -1,0 +1,115 @@
+.wrapper {
+  display: inline-grid;
+  grid-template-columns: repeat(2, min-content);
+  grid-gap: var(--margin-small);
+  position: relative;
+}
+
+.fieldset {
+  margin: 0;
+  padding: var(--padding-default);
+  border: 1px solid var(--grey-300);
+  border-radius: 4px;
+  height: 40px;
+  align-items: center;
+
+  &.presetRangeFieldset {
+    display: inline-grid;
+    grid-gap: calc(var(--margin-default) * 2);
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  &.customRangeFieldset {
+    display: inline-flex;
+    min-width: 0;
+  }
+}
+
+.presetRangeLabel {
+  & span {
+    padding: var(--padding-small) calc(var(--padding-default) * 2);
+    border-radius: 2px;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  & input {
+    display: none;
+
+    &:checked + span {
+      background: var(--grey-200);
+    }
+  }
+}
+
+.customRangeFieldsetButton {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.customRangeResetButton {
+  display: none;
+}
+
+.customRangeText {
+  margin: 0 var(--margin-default);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-shrink: 1;
+  display: none;
+}
+
+.customRangeBackdrop {
+  background: rgba(255, 255, 255, 0.75);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100svw;
+  height: 100svh;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+
+.calendar {
+  --adp-color: var(--grey-950);
+  --adp-day-name-color: var(--grey-950);
+  --adp-nav-color-secondary: var(--grey-950);
+  --adp-color-current-date: var(--purple);
+  --adp-background-color-in-range: var(--grey-200);
+  --adp-background-color-in-range-focused: var(--grey-300);
+  --adp-cell-background-color-hover: var(--grey-300);
+  --adp-cell-background-color-selected: var(--purple);
+  --adp-cell-background-color-selected-hover: var(--purple);
+  --adp-background-color-selected-other-month: var(--purple);
+  --adp-background-color-selected-other-month-focused: var(--purple);
+  --adp-cell-background-color-in-range: var(--grey-200);
+  --adp-cell-background-color-in-range-hover: var(--grey-300);
+  --adp-btn-color: var(--purple);
+  --adp-btn-color-hover: var(--white);
+  --adp-btn-background-color-hover: var(--purple);
+  --adp-btn-background-color-active: var(--purple);
+
+  & :global(.air-datepicker-button) {
+    &:disabled {
+      background: transparent;
+      color: var(--grey-200);
+      cursor: not-allowed;
+    }
+  }
+}
+
+@media screen and (min-width: 640px) {
+  .customRangeText, .customRangeResetButton {
+    display: initial;
+  }
+}
+
