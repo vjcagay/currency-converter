@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Summary /> should render correctly with a gain percentage 1`] = `
+<DocumentFragment>
+  <div
+    class="wrapper "
+  >
+    <b
+      class="titleText"
+    >
+      USD to JPY Chart
+    </b>
+    <wbr />
+     
+    <span
+      class="gainLossText gain"
+    >
+      +0.358%
+    </span>
+     
+    <span
+      class="rangeText"
+    >
+      (1W)
+    </span>
+    <br />
+    <small>
+      US Dollar to Japanese Yen
+    </small>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<Summary /> should render correctly with a loss percentage 1`] = `
+<DocumentFragment>
+  <div
+    class="wrapper "
+  >
+    <b
+      class="titleText"
+    >
+      USD to JPY Chart
+    </b>
+    <wbr />
+     
+    <span
+      class="gainLossText loss"
+    >
+      -0.359%
+    </span>
+     
+    <span
+      class="rangeText"
+    >
+      (1W)
+    </span>
+    <br />
+    <small>
+      US Dollar to Japanese Yen
+    </small>
+  </div>
+</DocumentFragment>
+`;

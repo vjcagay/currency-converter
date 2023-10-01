@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import CurrencyPicker from "../../components/currency-picker/CurrencyPicker";
 import DatePicker from "../../components/date-picker/DatePicker";
 import LineGraph from "../../components/line-graph/LineGraph";
+import Summary from "../../components/summary/Summary";
 import styles from "./styles.module.css";
 
 const HomeScreen = () => {
@@ -10,6 +11,7 @@ const HomeScreen = () => {
 
   const [fromDate, setFromDate] = useState("2023-10-03");
   const [toDate, setToDate] = useState("2023-10-10");
+  const [presetRange, setPresetRange] = useState("1W");
 
   const [dates, setDates] = useState<string[]>([]);
   const [data, setData] = useState<number[]>([]);
@@ -31,13 +33,22 @@ const HomeScreen = () => {
           setToCurrency(value.to);
         }}
       />
+      <Summary
+        className={styles.summary}
+        from={fromCurrency}
+        to={toCurrency}
+        firstRateValue={146.942966}
+        lastRateValue={147.470418}
+        rangeString={presetRange}
+      />
       <DatePicker
         className={styles.datePicker}
         from={fromDate}
         to={toDate}
-        onChange={(value) => {
+        onChange={(value, rangeName) => {
           setFromDate(value.from);
           setToDate(value.to);
+          setPresetRange(rangeName);
         }}
       />
       <LineGraph

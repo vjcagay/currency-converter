@@ -1,0 +1,21 @@
+.wrapper {}
+
+.titleText, .gainLossText {
+  font-size: 1.5rem;
+}
+
+.gainLossText {
+  font-weight: 500;
+
+  &.gain {
+    color: var(--success);
+  }
+
+  &.loss {
+    color: var(--danger);
+  }
+}
+
+.rangeText {
+  text-transform: lowercase;
+}

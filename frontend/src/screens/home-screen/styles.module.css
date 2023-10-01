@@ -1,7 +1,3 @@
-.currencyPicker {
-  margin-bottom: calc(var(--margin-default) * 3);
-}
-
-.datePicker {
+.currencyPicker, .summary, .datePicker {
   margin-bottom: calc(var(--margin-default) * 3);
 }
