@@ -4,37 +4,30 @@ import CurrencyPicker from "../CurrencyPicker";
 
 describe("<CurrencyPicker />", () => {
   it("should render correctly", () => {
-    const { asFragment } = render(<CurrencyPicker from="USD" to="JPY" onFromChange={() => {}} onToChange={() => {}} />);
+    const { asFragment } = render(<CurrencyPicker from="USD" to="JPY" onChange={() => {}} />);
 
     expect(asFragment()).toMatchSnapshot();
   });
 
   it("should invoke callbacks when selecting different values", async () => {
-    const onFromChangeMock = jest.fn();
-    const onToChangeMock = jest.fn();
+    const onChangeMock = jest.fn();
 
-    const { findByTestId } = render(
-      <CurrencyPicker from="USD" to="JPY" onFromChange={onFromChangeMock} onToChange={onToChangeMock} />,
-    );
-
+    const { findByTestId, rerender } = render(<CurrencyPicker from="USD" to="JPY" onChange={onChangeMock} />);
     fireEvent.change(await findByTestId("currency-picker-from"), { target: { value: "JPY" } });
-    fireEvent.change(await findByTestId("currency-picker-to"), { target: { value: "USD" } });
+    expect(onChangeMock).toHaveBeenCalledWith({ from: "JPY", to: "JPY" });
 
-    expect(onFromChangeMock).toHaveBeenCalledWith("JPY");
-    expect(onToChangeMock).toHaveBeenCalledWith("USD");
+    rerender(<CurrencyPicker from="JPY" to="JPY" onChange={onChangeMock} />);
+    fireEvent.change(await findByTestId("currency-picker-to"), { target: { value: "USD" } });
+    expect(onChangeMock).toHaveBeenCalledWith({ from: "JPY", to: "USD" });
   });
 
   it("should reverse props values when clicking the reverse button", async () => {
-    const onFromChangeMock = jest.fn();
-    const onToChangeMock = jest.fn();
+    const onChangeMock = jest.fn();
 
-    const { findByTestId } = render(
-      <CurrencyPicker from="USD" to="JPY" onFromChange={onFromChangeMock} onToChange={onToChangeMock} />,
-    );
+    const { findByTestId } = render(<CurrencyPicker from="USD" to="JPY" onChange={onChangeMock} />);
 
     fireEvent.click(await findByTestId("currency-picker-reverse"));
 
-    expect(onFromChangeMock).toHaveBeenCalledWith("JPY");
-    expect(onToChangeMock).toHaveBeenCalledWith("USD");
+    expect(onChangeMock).toHaveBeenCalledWith({ from: "JPY", to: "USD" });
   });
 });

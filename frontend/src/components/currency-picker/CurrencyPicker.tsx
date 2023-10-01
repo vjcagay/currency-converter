@@ -21,22 +21,24 @@ const currencies = [
 ];
 
 type Props = {
+  className?: string;
   from: string;
   to: string;
-  onFromChange: (currency: string) => void;
-  onToChange: (currency: string) => void;
+  onChange: (rate: { from: string; to: string }) => void;
 };
 
 const CurrencyPicker = (props: Props) => {
   return (
-    <div className={styles.wrapper}>
+    <div className={`${styles.wrapper} ${props.className || ""}`}>
       <label className={styles.label}>
         <span className={styles.labelText}>From</span>
         <select
           className={styles.select}
           data-testid="currency-picker-from"
           value={props.from}
-          onChange={(event) => props.onFromChange(event.target.value)}
+          onChange={(event) => {
+            props.onChange({ from: event.target.value, to: props.to });
+          }}
         >
           {currencies.map((currency) => (
             <option key={currency.ticker} value={currency.ticker}>
@@ -49,8 +51,7 @@ const CurrencyPicker = (props: Props) => {
         data-testid="currency-picker-reverse"
         className={styles.button}
         onClick={() => {
-          props.onFromChange(props.to);
-          props.onToChange(props.from);
+          props.onChange({ from: props.to, to: props.from });
         }}
       />
       <label className={styles.label}>
@@ -59,7 +60,9 @@ const CurrencyPicker = (props: Props) => {
           className={styles.select}
           data-testid="currency-picker-to"
           value={props.to}
-          onChange={(event) => props.onToChange(event.target.value)}
+          onChange={(event) => {
+            props.onChange({ from: props.from, to: event.target.value });
+          }}
         >
           {currencies.map((currency) => (
             <option key={currency.ticker} value={currency.ticker}>

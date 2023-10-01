@@ -11,7 +11,14 @@ const HomeScreen = () => {
 
   return (
     <>
-      <CurrencyPicker from={fromCurrency} to={toCurrency} onFromChange={setFromCurrency} onToChange={setToCurrency} />
+      <CurrencyPicker
+        from={fromCurrency}
+        to={toCurrency}
+        onChange={(value) => {
+          setFromCurrency(value.from);
+          setToCurrency(value.to);
+        }}
+      />
       <DatePicker
         from={fromDate}
         to={toDate}

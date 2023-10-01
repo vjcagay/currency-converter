@@ -3,7 +3,7 @@
 exports[`<CurrencyPicker /> should render correctly 1`] = `
 <DocumentFragment>
   <div
-    class="wrapper"
+    class="wrapper "
   >
     <label
       class="label"
