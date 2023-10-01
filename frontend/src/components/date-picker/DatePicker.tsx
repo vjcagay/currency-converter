@@ -12,7 +12,7 @@ type Props = {
   max?: string;
   from: string;
   to: string;
-  onChange: (range: { from: string; to: string }) => void;
+  onChange: (range: { from: string; to: string }, rangeName?: string) => void;
 };
 
 type CalendarProps = {
@@ -94,7 +94,6 @@ const DatePicker = (props: Props) => {
     if (selectedPresetRange) {
       const date = new Date();
 
-      let from = "";
       let to = formatDateString(date);
 
       if (selectedPresetRange === "1W") {
@@ -109,9 +108,9 @@ const DatePicker = (props: Props) => {
         date.setMonth(date.getMonth() - 6);
       }
 
-      from = formatDateString(date);
+      const from = formatDateString(date);
 
-      props.onChange({ from, to });
+      props.onChange({ from, to }, selectedPresetRange);
     }
   }, [selectedPresetRange]);
 
@@ -125,7 +124,7 @@ const DatePicker = (props: Props) => {
             <input
               type="radio"
               checked={selectedPresetRange === range}
-              onChange={(event) => setSelectedPresetRange(range)}
+              onChange={() => setSelectedPresetRange(range)}
             />
             <span>{range}</span>
           </label>

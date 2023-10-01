@@ -24,13 +24,13 @@ describe("<DatePicker />", () => {
     const { findByTestId } = render(<DatePicker from="2023-01-01" to="2023-12-31" onChange={onChangeMock} />);
 
     fireEvent.click(await findByTestId("date-picker-range-1W"));
-    expect(onChangeMock).toHaveBeenCalledWith({ from: "2023-10-03", to: "2023-10-10" });
+    expect(onChangeMock).toHaveBeenCalledWith({ from: "2023-10-03", to: "2023-10-10" }, "1W");
 
     fireEvent.click(await findByTestId("date-picker-range-1M"));
-    expect(onChangeMock).toHaveBeenCalledWith({ from: "2023-09-10", to: "2023-10-10" });
+    expect(onChangeMock).toHaveBeenCalledWith({ from: "2023-09-10", to: "2023-10-10" }, "1M");
 
     fireEvent.click(await findByTestId("date-picker-range-6M"));
-    expect(onChangeMock).toHaveBeenCalledWith({ from: "2023-04-10", to: "2023-10-10" });
+    expect(onChangeMock).toHaveBeenCalledWith({ from: "2023-04-10", to: "2023-10-10" }, "6M");
   });
 
   it("should return the correct `from` and `to` dates when selecting the ranges using the calendar", async () => {
@@ -56,6 +56,6 @@ describe("<DatePicker />", () => {
     fireEvent.click(await findByTestId("date-picker-open-calendar"));
     fireEvent.click((await findByText("Confirm")).parentElement);
     fireEvent.click(await findByTestId("date-picker-reset-range"));
-    expect(onChangeMock).toHaveBeenCalledWith({ from: "2023-10-03", to: "2023-10-10" });
+    expect(onChangeMock).toHaveBeenCalledWith({ from: "2023-10-03", to: "2023-10-10" }, "1W");
   });
 });
