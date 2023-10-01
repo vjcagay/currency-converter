@@ -1,0 +1,58 @@
+.label {
+  display: block;
+  position: relative;
+
+  &::after {
+    content: "";
+    background-image: url("./assets/chevron.svg");
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+  }
+}
+
+.labelText {
+  display: block;
+  color: var(--grey-950);
+  font-size: .75rem;
+  margin-bottom: var(--margin-small);
+}
+
+.select {
+  display: block;
+  appearance: none;
+  color: inherit;
+  background: transparent;
+  border: 1px solid var(--grey-300);
+  border-radius: 4px;
+  padding: var(--padding-default);
+  width: 100%;
+  height: 40px;
+}
+
+.button {
+  appearance: none;
+  width: 40px;
+  height: 40px;
+  background-image: url("./assets/arrows.svg");
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  margin: var(--margin-small) 0;
+}
+
+@media screen and (min-width: 640px) {
+  .wrapper {
+    display: grid;
+    grid-template-columns: 1fr 40px 1fr;
+    align-items: end;
+    column-gap: 16px;
+  }
+
+  .button {
+    margin: 0;
+  }
+}

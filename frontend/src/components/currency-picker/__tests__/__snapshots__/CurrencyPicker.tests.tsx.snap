@@ -2,58 +2,81 @@
 
 exports[`<CurrencyPicker /> should render correctly 1`] = `
 <DocumentFragment>
-  <div>
-    <select
-      data-testid="currency-picker-from"
+  <div
+    class="wrapper"
+  >
+    <label
+      class="label"
     >
-      <option
-        value="USD"
+      <span
+        class="labelText"
       >
-        🇺🇸USD - US Dollar
-      </option>
-      <option
-        value="SGD"
+        From
+      </span>
+      <select
+        class="select"
+        data-testid="currency-picker-from"
       >
-        🇸🇬SGD - Singapore Dollar
-      </option>
-      <option
-        value="JPY"
-      >
-        🇯🇵JPY - Japanese Yen
-      </option>
-      <option
-        value="EUR"
-      >
-        🇪🇺EUR - Euro
-      </option>
-    </select>
+        <option
+          value="USD"
+        >
+          🇺🇸 USD - US Dollar
+        </option>
+        <option
+          value="SGD"
+        >
+          🇸🇬 SGD - Singapore Dollar
+        </option>
+        <option
+          value="JPY"
+        >
+          🇯🇵 JPY - Japanese Yen
+        </option>
+        <option
+          value="EUR"
+        >
+          🇪🇺 EUR - Euro
+        </option>
+      </select>
+    </label>
     <button
+      class="button"
       data-testid="currency-picker-reverse"
     />
-    <select
-      data-testid="currency-picker-to"
+    <label
+      class="label"
     >
-      <option
-        value="USD"
+      <span
+        class="labelText"
       >
-        🇺🇸USD - US Dollar
-      </option>
-      <option
-        value="SGD"
+        To
+      </span>
+      <select
+        class="select"
+        data-testid="currency-picker-to"
       >
-        🇸🇬SGD - Singapore Dollar
-      </option>
-      <option
-        value="JPY"
-      >
-        🇯🇵JPY - Japanese Yen
-      </option>
-      <option
-        value="EUR"
-      >
-        🇪🇺EUR - Euro
-      </option>
-    </select>
+        <option
+          value="USD"
+        >
+          🇺🇸 USD - US Dollar
+        </option>
+        <option
+          value="SGD"
+        >
+          🇸🇬 SGD - Singapore Dollar
+        </option>
+        <option
+          value="JPY"
+        >
+          🇯🇵 JPY - Japanese Yen
+        </option>
+        <option
+          value="EUR"
+        >
+          🇪🇺 EUR - Euro
+        </option>
+      </select>
+    </label>
   </div>
 </DocumentFragment>
 `;
