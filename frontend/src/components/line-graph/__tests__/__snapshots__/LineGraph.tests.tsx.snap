@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<LineGraph /> should render correctly 1`] = `
+<DocumentFragment>
+  <canvas
+    class="wrapper "
+    height="0"
+    style="display: block; box-sizing: border-box; height: 0px; width: 0px;"
+    width="0"
+  />
+</DocumentFragment>
+`;
