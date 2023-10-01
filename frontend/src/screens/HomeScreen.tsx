@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import CurrencyPicker from "../components/currency-picker/CurrencyPicker";
 
 const HomeScreen = () => {
