@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import CurrencyPicker from "../components/currency-picker/CurrencyPicker";
-import DatePicker from "../components/date-picker/DatePicker";
+import CurrencyPicker from "../../components/currency-picker/CurrencyPicker";
+import DatePicker from "../../components/date-picker/DatePicker";
+import styles from "./styles.module.css";
 
 const HomeScreen = () => {
   const [fromCurrency, setFromCurrency] = useState("USD");
@@ -12,6 +13,7 @@ const HomeScreen = () => {
   return (
     <>
       <CurrencyPicker
+        className={styles.currencyPicker}
         from={fromCurrency}
         to={toCurrency}
         onChange={(value) => {
@@ -20,6 +22,7 @@ const HomeScreen = () => {
         }}
       />
       <DatePicker
+        className={styles.datePicker}
         from={fromDate}
         to={toDate}
         onChange={(value) => {

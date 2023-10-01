@@ -1,6 +1,6 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import HomeScreen from "./screens/HomeScreen";
+import HomeScreen from "./screens/home-screen/HomeScreen";
 
 const App = () => {
   return (
