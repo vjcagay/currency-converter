@@ -45,22 +45,46 @@ app.get("/history", (req, res) => {
     const timestamp = new Date(item.date).getTime();
 
     if (timestamp >= startTimestamp && timestamp <= endTimestamp) {
+      let rate = 0;
+
+      if (fromUpperCase === toUpperCase) {
+        rate = 1;
+      }
+
+      if (fromUpperCase === "USD" && toUpperCase !== "USD") {
+        rate = item.quotes[`USD${toUpperCase}`];
+      }
+
+      if (fromUpperCase !== "USD" && toUpperCase === "USD") {
+        // e is for exponent, 1e3 means 1000
+        rate = Math.round((1 / item.quotes[`USD${fromUpperCase}`]) * 1e6) / 1e6;
+      }
+
+      // Rate calculations will use USD as the base
+      if (fromUpperCase !== "USD" && toUpperCase !== "USD") {
+        const fromRate = item.quotes[`USD${fromUpperCase}`];
+        const toRate = item.quotes[`USD${toUpperCase}`];
+        rate = Math.round((toRate / fromRate) * 1e6) / 1e6;
+      }
+
       acc.push({
         date: item.date,
-        rate: item.quotes[`${fromUpperCase}${toUpperCase}`],
+        rate,
       });
     }
 
     return acc;
   }, []);
 
-  const endRate = processedData[processedData.length - 1].rate;
-  const startRate = processedData[0].rate;
+  let gainLossPercentage = 0;
 
-  // Round to the nearest thousandth decimal
-  // 100,000 is just 100 (for %) * 1000 (for dividing to 1000)
-  // e is for exponent, 1e3 means 1000 etc
-  const gainLossPercentage = Math.round(((startRate - endRate) / endRate) * 1e5) / 1e3;
+  if (fromUpperCase !== toUpperCase) {
+    const endRate = processedData[processedData.length - 1].rate;
+    const startRate = processedData[0].rate;
+    // Round to the nearest thousandth decimal
+    // 100,000 is just 100 (for %) * 1000 (for dividing to 1000)
+    gainLossPercentage = Math.round(((startRate - endRate) / endRate) * 1e5) / 1e3;
+  }
 
   res.json({
     start,
