@@ -4,27 +4,9 @@ import app from "../app";
 
 jest.mock("../data", () => {
   return [
-    {
-      date: "2023-09-30",
-      quotes: {
-        USDJPY: 149.235416,
-        USDEUR: 0.943931,
-      },
-    },
-    {
-      date: "2023-09-29",
-      quotes: {
-        USDJPY: 149.235416,
-        USDEUR: 0.943931,
-      },
-    },
-    {
-      date: "2023-09-28",
-      quotes: {
-        USDJPY: 149.283613,
-        USDEUR: 0.948857,
-      },
-    },
+    { date: "2023-09-30", quotes: { USDJPY: 149.235416, USDSGD: 1.363319, USDEUR: 0.943931 } },
+    { date: "2023-09-29", quotes: { USDJPY: 149.235416, USDSGD: 1.363319, USDEUR: 0.943931 } },
+    { date: "2023-09-28", quotes: { USDJPY: 149.283613, USDSGD: 1.369295, USDEUR: 0.948857 } },
   ];
 });
 
