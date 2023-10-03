@@ -1,0 +1,169 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<HomeScreen /> should render correctly with a gain percentage 1`] = `
+<DocumentFragment>
+  <div
+    class="wrapper currencyPicker"
+  >
+    <label
+      class="label"
+    >
+      <span
+        class="labelText"
+      >
+        From
+      </span>
+      <select
+        class="select"
+        data-testid="currency-picker-from"
+      >
+        <option
+          value="USD"
+        >
+          🇺🇸 USD - US Dollar
+        </option>
+        <option
+          value="SGD"
+        >
+          🇸🇬 SGD - Singapore Dollar
+        </option>
+        <option
+          value="JPY"
+        >
+          🇯🇵 JPY - Japanese Yen
+        </option>
+        <option
+          value="EUR"
+        >
+          🇪🇺 EUR - Euro
+        </option>
+      </select>
+    </label>
+    <button
+      class="button"
+      data-testid="currency-picker-reverse"
+    />
+    <label
+      class="label"
+    >
+      <span
+        class="labelText"
+      >
+        To
+      </span>
+      <select
+        class="select"
+        data-testid="currency-picker-to"
+      >
+        <option
+          value="USD"
+        >
+          🇺🇸 USD - US Dollar
+        </option>
+        <option
+          value="SGD"
+        >
+          🇸🇬 SGD - Singapore Dollar
+        </option>
+        <option
+          value="JPY"
+        >
+          🇯🇵 JPY - Japanese Yen
+        </option>
+        <option
+          value="EUR"
+        >
+          🇪🇺 EUR - Euro
+        </option>
+      </select>
+    </label>
+  </div>
+  <div
+    class="wrapper summary"
+  >
+    <b
+      class="titleText"
+    >
+      USD to JPY Chart
+    </b>
+    <wbr />
+     
+    <span
+      class="gainLossText gain"
+    >
+      +0%
+    </span>
+     
+    <span
+      class="rangeText"
+    >
+      (1W)
+    </span>
+    <br />
+    <small>
+      US Dollar to Japanese Yen
+    </small>
+  </div>
+  <div
+    class="wrapper datePicker"
+  >
+    <fieldset
+      class="fieldset presetRangeFieldset"
+    >
+      <label
+        class="presetRangeLabel"
+        data-testid="date-picker-range-1W"
+      >
+        <input
+          checked=""
+          type="radio"
+        />
+        <span>
+          1W
+        </span>
+      </label>
+      <label
+        class="presetRangeLabel"
+        data-testid="date-picker-range-1M"
+      >
+        <input
+          type="radio"
+        />
+        <span>
+          1M
+        </span>
+      </label>
+      <label
+        class="presetRangeLabel"
+        data-testid="date-picker-range-6M"
+      >
+        <input
+          type="radio"
+        />
+        <span>
+          6M
+        </span>
+      </label>
+    </fieldset>
+    <fieldset
+      class="fieldset customRangeFieldset"
+    >
+      <button
+        class="customRangeFieldsetButton"
+        data-testid="date-picker-open-calendar"
+      >
+        <img
+          alt="calendar icon"
+          src="test-file-stub"
+        />
+      </button>
+    </fieldset>
+  </div>
+  <canvas
+    class="wrapper "
+    height="0"
+    style="display: block; box-sizing: border-box; height: 0px; width: 0px;"
+    width="0"
+  />
+</DocumentFragment>
+`;

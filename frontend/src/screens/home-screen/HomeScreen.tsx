@@ -5,49 +5,71 @@ import LineGraph from "../../components/line-graph/LineGraph";
 import Summary from "../../components/summary/Summary";
 import styles from "./styles.module.css";
 
-const HomeScreen = () => {
-  const [fromCurrency, setFromCurrency] = useState("USD");
-  const [toCurrency, setToCurrency] = useState("JPY");
+type FetchResponseJSON = {
+  start: string;
+  end: string;
+  from: string;
+  to: string;
+  gainLossPercentage: number;
+  data: { date: string; rate: string }[];
+};
 
-  const [fromDate, setFromDate] = useState("2023-10-03");
-  const [toDate, setToDate] = useState("2023-10-10");
-  const [presetRange, setPresetRange] = useState("1W");
+const HomeScreen = () => {
+  const [from, setFrom] = useState("USD");
+  const [to, setTo] = useState("JPY");
+
+  const [start, setStart] = useState("");
+  const [end, setEnd] = useState("");
 
   const [dates, setDates] = useState<string[]>([]);
-  const [data, setData] = useState<number[]>([]);
+  const [rates, setRates] = useState<number[]>([]);
+
+  const [presetRange, setPresetRange] = useState("1W");
+  const [gainLoss, setGainLoss] = useState(0);
 
   useEffect(() => {
-    setDates(["2023-09-24", "2023-09-25", "2023-09-26", "2023-09-27", "2023-09-28", "2023-09-29", "2023-09-30"]);
+    if (from && to && start && end) {
+      fetch(`http://localhost:8081/history?from=${from}&to=${to}&start=${start}&end=${end}`)
+        .then((results) => {
+          return results.json();
+        })
+        .then((json: FetchResponseJSON) => {
+          const { dates, rates } = json.data.reduce(
+            (acc, item) => {
+              acc.dates.push(item.date);
+              acc.rates.push(item.rate);
 
-    setData([148.27651, 148.669237, 148.863744, 149.202733, 149.283613, 149.235416, 149.235416]);
-  }, []);
+              return acc;
+            },
+            { dates: [], rates: [] },
+          );
+
+          setDates(dates);
+          setRates(rates);
+          setGainLoss(json.gainLossPercentage);
+        });
+    }
+  }, [from, to, start, end]);
 
   return (
     <>
       <CurrencyPicker
         className={styles.currencyPicker}
-        from={fromCurrency}
-        to={toCurrency}
+        from={from}
+        to={to}
         onChange={(value) => {
-          setFromCurrency(value.from);
-          setToCurrency(value.to);
+          setFrom(value.from);
+          setTo(value.to);
         }}
       />
-      <Summary
-        className={styles.summary}
-        from={fromCurrency}
-        to={toCurrency}
-        firstRateValue={146.942966}
-        lastRateValue={147.470418}
-        rangeString={presetRange}
-      />
+      <Summary className={styles.summary} from={from} to={to} gainLossPercentage={gainLoss} rangeString={presetRange} />
       <DatePicker
         className={styles.datePicker}
-        from={fromDate}
-        to={toDate}
+        start={start}
+        end={end}
         onChange={(value, rangeName) => {
-          setFromDate(value.from);
-          setToDate(value.to);
+          setStart(value.start);
+          setEnd(value.end);
           setPresetRange(rangeName);
         }}
       />
@@ -56,7 +78,7 @@ const HomeScreen = () => {
         datasets={[
           {
             label: "Exchange Rate",
-            data,
+            data: rates,
             borderColor: "#0171eb",
             backgroundColor: "#0171eb",
             tension: 0.2,
