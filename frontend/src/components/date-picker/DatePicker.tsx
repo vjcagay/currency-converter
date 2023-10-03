@@ -10,17 +10,17 @@ type Props = {
   className?: string;
   min?: string;
   max?: string;
-  from: string;
-  to: string;
-  onChange: (range: { from: string; to: string }, rangeName?: string) => void;
+  start: string;
+  end: string;
+  onChange: (range: { start: string; end: string }, rangeName?: string) => void;
 };
 
 type CalendarProps = {
   min?: string;
   max?: string;
-  from: string;
-  to: string;
-  onChange: (range: { from: string; to: string }) => void;
+  start: string;
+  end: string;
+  onChange: (range: { start: string; end: string }) => void;
   onCancel: () => void;
 };
 
@@ -56,8 +56,8 @@ const Calendar = (props: CalendarProps) => {
             onClick(picker) {
               if (picker.selectedDates.length === 2) {
                 props.onChange({
-                  from: formatDateString(picker.selectedDates[0]),
-                  to: formatDateString(picker.selectedDates[1]),
+                  start: formatDateString(picker.selectedDates[0]),
+                  end: formatDateString(picker.selectedDates[1]),
                 });
               }
             },
@@ -75,7 +75,7 @@ const Calendar = (props: CalendarProps) => {
         },
         minDate: props.min,
         maxDate: props.max,
-        selectedDates: [props.from, props.to],
+        selectedDates: [props.start, props.end],
       });
     }
 
@@ -94,7 +94,7 @@ const DatePicker = (props: Props) => {
     if (selectedPresetRange) {
       const date = new Date();
 
-      let to = formatDateString(date);
+      let end = formatDateString(date);
 
       if (selectedPresetRange === "1W") {
         date.setDate(date.getDate() - 7);
@@ -108,9 +108,9 @@ const DatePicker = (props: Props) => {
         date.setMonth(date.getMonth() - 6);
       }
 
-      const from = formatDateString(date);
+      const start = formatDateString(date);
 
-      props.onChange({ from, to }, selectedPresetRange);
+      props.onChange({ start, end }, selectedPresetRange);
     }
   }, [selectedPresetRange]);
 
@@ -143,7 +143,7 @@ const DatePicker = (props: Props) => {
             <span
               className={styles.customRangeText}
               data-testid="date-picker-custom-range"
-            >{`${props.from} - ${props.to}`}</span>
+            >{`${props.start} - ${props.end}`}</span>
             <button
               className={`${styles.customRangeFieldsetButton} ${styles.customRangeResetButton}`}
               data-testid="date-picker-reset-range"
@@ -159,8 +159,8 @@ const DatePicker = (props: Props) => {
           <Calendar
             min={props.min}
             max={props.max}
-            from={props.from}
-            to={props.to}
+            start={props.start}
+            end={props.end}
             onCancel={() => setIsCustomRangePickerOpen(false)}
             onChange={(range) => {
               props.onChange(range);
