@@ -4,9 +4,9 @@ import app from "../app";
 
 jest.mock("../data", () => {
   return [
-    { date: "2023-09-30", quotes: { USDJPY: 149.235416, USDSGD: 1.363319, USDEUR: 0.943931 } },
-    { date: "2023-09-29", quotes: { USDJPY: 149.235416, USDSGD: 1.363319, USDEUR: 0.943931 } },
     { date: "2023-09-28", quotes: { USDJPY: 149.283613, USDSGD: 1.369295, USDEUR: 0.948857 } },
+    { date: "2023-09-29", quotes: { USDJPY: 149.235416, USDSGD: 1.363319, USDEUR: 0.943931 } },
+    { date: "2023-09-30", quotes: { USDJPY: 149.235416, USDSGD: 1.363319, USDEUR: 0.943931 } },
   ];
 });
 
@@ -80,7 +80,7 @@ describe("Given app.ts", () => {
         gainLossPercentage: 0,
         data: [
           {
-            date: "2023-09-30",
+            date: "2023-09-28",
             rate: 1,
           },
           {
@@ -88,7 +88,7 @@ describe("Given app.ts", () => {
             rate: 1,
           },
           {
-            date: "2023-09-28",
+            date: "2023-09-30",
             rate: 1,
           },
         ],
@@ -105,19 +105,19 @@ describe("Given app.ts", () => {
         end: "2023-09-30",
         from: "USD",
         to: "JPY",
-        gainLossPercentage: -0.032,
+        gainLossPercentage: 0.032,
         data: [
           {
-            date: "2023-09-30",
-            rate: 149.235416,
+            date: "2023-09-28",
+            rate: 149.283613,
           },
           {
             date: "2023-09-29",
             rate: 149.235416,
           },
           {
-            date: "2023-09-28",
-            rate: 149.283613,
+            date: "2023-09-30",
+            rate: 149.235416,
           },
         ],
       });
@@ -133,19 +133,19 @@ describe("Given app.ts", () => {
         end: "2023-09-30",
         from: "JPY",
         to: "USD",
-        gainLossPercentage: 0.03,
+        gainLossPercentage: -0.03,
         data: [
           {
-            date: "2023-09-30",
-            rate: 0.006701,
+            date: "2023-09-28",
+            rate: 0.006699,
           },
           {
             date: "2023-09-29",
             rate: 0.006701,
           },
           {
-            date: "2023-09-28",
-            rate: 0.006699,
+            date: "2023-09-30",
+            rate: 0.006701,
           },
         ],
       });
@@ -161,19 +161,19 @@ describe("Given app.ts", () => {
         end: "2023-09-30",
         from: "EUR",
         to: "JPY",
-        gainLossPercentage: 0.489,
+        gainLossPercentage: -0.487,
         data: [
           {
-            date: "2023-09-30",
-            rate: 158.09992,
+            date: "2023-09-28",
+            rate: 157.329938,
           },
           {
             date: "2023-09-29",
             rate: 158.09992,
           },
           {
-            date: "2023-09-28",
-            rate: 157.329938,
+            date: "2023-09-30",
+            rate: 158.09992,
           },
         ],
       });
