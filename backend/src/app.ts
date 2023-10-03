@@ -1,4 +1,5 @@
 import bodyParser from "body-parser";
+import cors from "cors";
 import express from "express";
 
 import data from "./data";
@@ -6,6 +7,7 @@ import data from "./data";
 const app = express();
 
 app.use(bodyParser.json());
+app.use(cors());
 
 app.get("/history", (req, res) => {
   const { from, to, start, end } = req.query;
@@ -26,6 +28,27 @@ app.get("/history", (req, res) => {
     return;
   }
 
+  const dateRegex = /^\d{4}-([0]\d|1[0-2])-([0-2]\d|3[01])$/;
+
+  if (!dateRegex.test(start.toString()) || !dateRegex.test(end.toString())) {
+    res.statusCode = 400;
+    res.json({
+      message: "Date format incorrect. Please check your request.",
+    });
+    return;
+  }
+
+  const startTimestamp = new Date(start.toString()).getTime();
+  const endTimestamp = new Date(end.toString()).getTime();
+
+  if (startTimestamp > endTimestamp) {
+    res.statusCode = 400;
+    res.json({
+      message: "Start date should not be greater than end date. Please check your request.",
+    });
+    return;
+  }
+
   const supportedCurrencies = ["USD", "SGD", "JPY", "EUR"];
   const fromUpperCase = from.toString().toUpperCase();
   const toUpperCase = to.toString().toUpperCase();
@@ -37,9 +60,6 @@ app.get("/history", (req, res) => {
     });
     return;
   }
-
-  const startTimestamp = new Date(start.toString()).getTime();
-  const endTimestamp = new Date(end.toString()).getTime();
 
   const processedData = data.reduce((acc: { date: string; rate: number }[], item) => {
     const timestamp = new Date(item.date).getTime();

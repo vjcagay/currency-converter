@@ -19,10 +19,12 @@
   "homepage": "https://github.com/vjcagay/currency-trend#readme",
   "dependencies": {
     "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
     "express": "^4.18.2"
   },
   "devDependencies": {
     "@types/body-parser": "^1.19.3",
+    "@types/cors": "^2.8.14",
     "@types/express": "^4.17.18",
     "@types/jest": "^29.5.5",
     "@types/supertest": "^2.0.13",

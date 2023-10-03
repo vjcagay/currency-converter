@@ -41,6 +41,24 @@ describe("Given app.ts", () => {
       });
     });
 
+    it("should accept only valid dates", async () => {
+      const response = await request(app).get("/history?from=usd&to=jpy&start=not-a-date&end=not-a-date");
+
+      expect(response.headers["content-type"]).toMatch(/json/);
+      expect(response.statusCode).toBe(400);
+      expect(response.body).toStrictEqual({ message: "Date format incorrect. Please check your request." });
+    });
+
+    it("should allow only correct date range", async () => {
+      const response = await request(app).get("/history?from=usd&to=jpy&start=2023-10-02&end=2023-10-01");
+
+      expect(response.headers["content-type"]).toMatch(/json/);
+      expect(response.statusCode).toBe(400);
+      expect(response.body).toStrictEqual({
+        message: "Start date should not be greater than end date. Please check your request.",
+      });
+    });
+
     it("should accept only supported currencies", async () => {
       const response = await request(app).get("/history?from=aaa&to=bbb&start=2022-10-01&end=2023-09-30");
 
