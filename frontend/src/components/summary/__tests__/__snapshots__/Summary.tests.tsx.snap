@@ -15,7 +15,7 @@ exports[`<Summary /> should render correctly with a gain percentage 1`] = `
     <span
       class="gainLossText gain"
     >
-      +0.358%
+      +0.1234%
     </span>
      
     <span
@@ -46,7 +46,7 @@ exports[`<Summary /> should render correctly with a loss percentage 1`] = `
     <span
       class="gainLossText loss"
     >
-      -0.359%
+      -0.1234%
     </span>
      
     <span
