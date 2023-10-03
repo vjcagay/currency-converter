@@ -32,6 +32,15 @@ const LineGraph = (props: Props) => {
         interaction: {
           intersect: false,
         },
+        datasets: {
+          line: {
+            borderWidth: 1,
+            pointStyle: "circle",
+            tension: 0.1,
+            pointRadius: 0,
+            pointHoverRadius: 2,
+          },
+        },
         scales: {
           x: {
             grid: {
@@ -47,7 +56,7 @@ const LineGraph = (props: Props) => {
               align: "inner",
               autoSkip: true,
               maxRotation: 0,
-              autoSkipPadding: 32,
+              autoSkipPadding: 40,
             },
           },
           y: {
