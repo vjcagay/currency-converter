@@ -99,8 +99,8 @@ app.get("/history", (req, res) => {
   let gainLossPercentage = 0;
 
   if (fromUpperCase !== toUpperCase) {
-    const endRate = processedData[processedData.length - 1].rate;
-    const startRate = processedData[0].rate;
+    const startRate = processedData[processedData.length - 1].rate;
+    const endRate = processedData[0].rate;
     // Round to the nearest thousandth decimal
     // 100,000 is just 100 (for %) * 1000 (for dividing to 1000)
     gainLossPercentage = Math.round(((startRate - endRate) / endRate) * 1e5) / 1e3;

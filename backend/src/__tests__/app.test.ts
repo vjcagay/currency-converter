@@ -105,7 +105,7 @@ describe("Given app.ts", () => {
         end: "2023-09-30",
         from: "USD",
         to: "JPY",
-        gainLossPercentage: 0.032,
+        gainLossPercentage: -0.032,
         data: [
           {
             date: "2023-09-28",
@@ -133,7 +133,7 @@ describe("Given app.ts", () => {
         end: "2023-09-30",
         from: "JPY",
         to: "USD",
-        gainLossPercentage: -0.03,
+        gainLossPercentage: 0.03,
         data: [
           {
             date: "2023-09-28",
@@ -161,7 +161,7 @@ describe("Given app.ts", () => {
         end: "2023-09-30",
         from: "EUR",
         to: "JPY",
-        gainLossPercentage: -0.487,
+        gainLossPercentage: 0.489,
         data: [
           {
             date: "2023-09-28",
