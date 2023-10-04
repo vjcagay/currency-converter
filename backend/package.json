@@ -2,7 +2,7 @@
   "name": "currency-trend-frontend",
   "version": "0.0.1",
   "description": "Backend for the Currency Trend",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
     "test": "jest",
     "dev": "nodemon --watch src --watch index.ts index.ts"
@@ -20,7 +20,8 @@
   "dependencies": {
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "ts-node": "^10.9.1"
   },
   "devDependencies": {
     "@types/body-parser": "^1.19.3",
@@ -33,7 +34,6 @@
     "prettier": "^3.0.3",
     "supertest": "^6.3.3",
     "ts-jest": "^29.1.1",
-    "ts-node": "^10.9.1",
     "typescript": "^5.2.2"
   },
   "jest": {

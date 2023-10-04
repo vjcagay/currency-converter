@@ -1,0 +1,16 @@
+name: currency-trend
+
+services:
+  backend:
+    build:
+      target: backend
+    ports:
+      - 8081:8081
+    container_name: backend
+  frontend:
+    build:
+      target: frontend
+    ports:
+      - 8080:80
+    container_name: frontend
+    depends_on: [backend]

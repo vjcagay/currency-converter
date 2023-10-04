@@ -1,0 +1,13 @@
+Dockerfile
+**/coverage
+**/node_modules
+**/__mocks__
+**/__tests__
+.github
+.idea
+.nova
+.vscode
+.editorconfig
+.gitignore
+.tool-versions
+README.md
