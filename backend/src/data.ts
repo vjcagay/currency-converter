@@ -364,5 +364,9 @@ const data: { date: string; quotes: { [x: string]: number } }[] = [
   { date: "2023-09-28", quotes: { USDJPY: 149.283613, USDSGD: 1.369295, USDEUR: 0.948857 } },
   { date: "2023-09-29", quotes: { USDJPY: 149.235416, USDSGD: 1.363319, USDEUR: 0.943931 } },
   { date: "2023-09-30", quotes: { USDJPY: 149.235416, USDSGD: 1.363319, USDEUR: 0.943931 } },
+  { date: "2023-10-01", quotes: { USDJPY: 149.235416, USDSGD: 1.363319, USDEUR: 0.943931 } },
+  { date: "2023-10-02", quotes: { USDJPY: 149.734093, USDSGD: 1.372175, USDEUR: 0.949668 } },
+  { date: "2023-10-03", quotes: { USDJPY: 149.97612, USDSGD: 1.374821, USDEUR: 0.955201 } },
+  { date: "2023-10-04", quotes: { USDJPY: 149.128261, USDSGD: 1.373519, USDEUR: 0.954606 } },
 ];
 export default data;
