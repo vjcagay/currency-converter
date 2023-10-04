@@ -178,5 +178,20 @@ describe("Given app.ts", () => {
         ],
       });
     });
+
+    it("should handle out-of-range dates", async () => {
+      const response = await request(app).get("/history?from=usd&to=jpy&start=1900-01-01&end=1900-12-31");
+
+      expect(response.headers["content-type"]).toMatch(/json/);
+      expect(response.statusCode).toBe(200);
+      expect(response.body).toStrictEqual({
+        start: "1900-01-01",
+        end: "1900-12-31",
+        from: "USD",
+        to: "JPY",
+        gainLossPercentage: 0,
+        data: [],
+      });
+    });
   });
 });
